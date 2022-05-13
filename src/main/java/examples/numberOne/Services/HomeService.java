@@ -17,4 +17,10 @@ public class HomeService {
     public List<String> getAllStringsService() {return homeRepository.getAllStringsRespository();}
 
     public void addStringsService(String string) {homeRepository.addStringsRepository(string);}
+
+    public void updateStringService(String string, String updateString) {
+        homeRepository.updateStringRepository(string, updateString);
+    }
+
+    public void deleteStringService(String string) {homeRepository.deleteStringRepository(string);}
 }
