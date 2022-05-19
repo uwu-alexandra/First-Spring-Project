@@ -1,5 +1,6 @@
 package examples.numberOne.Services;
 
+import examples.numberOne.Exceptions.StudentNotFoundException;
 import examples.numberOne.Model.Student;
 import examples.numberOne.Repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,11 @@ public class StudentService {
 
     public void deleteStudentS(String id) {studentRepository.deleteById(id);}
 
-    public boolean studentExistS(String id) {return  studentRepository.existsById(id);}
+    public void studentExistS(String id) {
+        if(!studentRepository.existsById(id)) {
+            throw new StudentNotFoundException("EXCEPTION: Student with id " + id + " doesn't exist");
+        }
+    }
 
 
 }

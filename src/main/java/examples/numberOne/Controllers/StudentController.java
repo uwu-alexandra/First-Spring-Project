@@ -27,22 +27,16 @@ public class StudentController {
 
     @PutMapping("/updateStudent")
     public ResponseEntity<Object> updateStudentC(@RequestBody Student student) {
-        if(studentService.studentExistS(student.getId())) {
-            studentService.updateStudentS(student);
-            return new ResponseEntity<>("Student with id: " + student.getId() + " was updated.", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Student with id: " + student.getId() + " was not found.", HttpStatus.NOT_FOUND);
-        }
+        studentService.studentExistS(student.getId());
+        studentService.updateStudentS(student);
+        return new ResponseEntity<>("Student with id: " + student.getId() + " was updated.", HttpStatus.OK);
     }
 
     @DeleteMapping("/deleteStudent/{id}")
     public ResponseEntity<Object> deleteStudentC(@PathVariable String id) {
-        if(studentService.studentExistS(id)) {
-            studentService.deleteStudentS(id);
-            return new ResponseEntity<>("Student with id: " + id + " was deleted", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Student with id: " + id + " was not found", HttpStatus.NOT_FOUND);
-        }
+       studentService.studentExistS(id);
+       studentService.deleteStudentS(id);
+       return new ResponseEntity<>("Student with id: " + id + " was deleted", HttpStatus.OK);
     }
 
 }
