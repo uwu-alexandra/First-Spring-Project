@@ -7,9 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
 
-/*● Adding the @AllArgsConstructor, @NoArgsConstructor and @Data
-annotations will provide our class with all the constructor as well as getter,
-setter, toString and equals and hashcode methods*/
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

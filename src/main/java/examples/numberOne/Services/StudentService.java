@@ -22,5 +22,7 @@ public class StudentService {
 
     public void deleteStudentS(String id) {studentRepository.deleteById(id);}
 
+    public boolean studentExistS(String id) {return  studentRepository.existsById(id);}
+
 
 }
