@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  myappdb:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=test123
+      - MYSQL_DATABASE=student
+    ports:
+      - 3306:3306
+
+  myapp-main:
+    build: .
+    depends_on:
+      - myappdb
+    ports:
+      - 4040:4040
